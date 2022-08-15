@@ -98,3 +98,10 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.results {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    
+}

@@ -3,8 +3,11 @@ window.onload = () => {
     listenEvents();
 }
 
-let number = ""; 
-
+let number1 = ""; 
+let number2 = ""; 
+let operate = false;
+let op = ""; 
+ 
 //getting all the div elements on the page 
 function activateButtons(){
     //numbers
@@ -58,23 +61,80 @@ function listenEvents(){
     equals.addEventListener('click', pressed);
 }
 
+//this is called when a button is pressed and it sorts out what to do in each case
 function pressed(e){
-    if(e.target.textContent == "+" || e.target.textContent == "-" || e.target.textContent == "x" ||e.target.textContent == "÷"){
-        operation(e.target.textContent); 
+    if(e.target.textContent =="+" ||e.target.textContent =="-" || e.target.textContent =="x" || e.target.textContent =="÷"){
+        if(operate == false){
+            op = e.target.textContent; 
+            operate = true; 
+            number2 = number1; 
+            number1 = ""; 
+            results.textContent += op; 
+        }
     }
-    else if(e.target.textContent == "clear" || e.target.textContent == "="){
-        action(e.target.textContent); 
+    else if(e.target.textContent == "="){
+        if(operate == true){
+            action(number1, op, number2);  
+        }
+    }
+    else if(e.target.textContent == "clear"){
+        operate = false; 
+        number1 = ""; 
+        number2 = ""; 
+        results.textContent = ""; 
     }
     else{
-        number += e.target.textContent; 
-        console.log(number); 
+        number1 += e.target.textContent; 
+        results.textContent = number1; 
     }
 }
 
-function operation(op){
-    console.log(op); 
+function action(num1, op, num2){
+    num1 = Number(num1); 
+    num2 = Number(num2); 
+    operate = false;
+    switch(op){
+        case '+':
+            add(num1, num2); 
+            break; 
+        case '-':
+            subtract(num1, num2); 
+            break; 
+        case 'x':
+            multiplication(num1, num2); 
+            break; 
+        case '÷':
+            division(num1, num2); 
+            break; 
+    } 
+
 }
 
-function action(action){
-    console.log(action); 
+function add(n1, n2){
+    let result = n1 + n2; 
+    number1 = result; 
+    number2 = ""; 
+    results.textContent = result;
+
+}
+
+function subtract(n2, n1){
+    let result = n1 - n2;
+    number1 = result; 
+    number2 = ""; 
+    results.textContent = result; 
+}
+
+function multiplication(n1, n2){
+    let result = n1 * n2; 
+    number1 = result; 
+    number2 = ""; 
+    results.textContent = result; 
+}
+
+function division(n2, n1){
+    let result = n1 / n2; 
+    number1 = result; 
+    number2 = ""; 
+    results.textContent = result;
 }
