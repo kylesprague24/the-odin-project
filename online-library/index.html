@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/script.js"></script>
+    <title>Online Library</title>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>Online Library</h1>
+        </header>
+        <div class="actions">
+            <button id = "add">Add Book</button>
+        </div>
+        <table id = "table">
+            <thead>
+                <tr>
+                    <th>Book Name</th>
+                    <th>Book Author</th>
+                    <th>Book ID #</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Harry Potter and the Sorcerer's Stone</td>
+                    <td>J. K. Rowling</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id = "form-pop" class="form-pop">
+            <label for="name">Enter the Book Name: </label>
+            <input id = "bookName" type="text" name = "name" required>
+            <label for="author">Enter the Name of the Author</label>
+            <input id = "authorName" type="text" name = "author" required>
+            <button id = "submit">Submit</button>
+            <button id = "close">Close</button>
+    </div>
+</body>
+</html>
